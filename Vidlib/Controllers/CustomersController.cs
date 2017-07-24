@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidlib.Models;
+using System.Data.Entity;
 
 namespace Vidlib.Controllers
 {
@@ -24,7 +24,7 @@ namespace Vidlib.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
@@ -39,16 +39,6 @@ namespace Vidlib.Controllers
             {
                 return View(customer);
             }
-        }
-
-        private IEnumerable<Customer> GetCustomers()
-        {
-            List<Customer> customers = new List<Customer>
-            {
-                new Customer{Id = 1, Name = "Ravi"},
-                new Customer{Id = 2, Name = "Mohan"}
-            };
-            return customers;
         }
     }
 }

@@ -7,13 +7,13 @@ namespace Vidlib.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddMembershipType : IMigrationMetadata
+    public sealed partial class SetMemNameOfMembershipType : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMembershipType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SetMemNameOfMembershipType));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707240500327_AddMembershipType"; }
+            get { return "201707240950245_SetMemNameOfMembershipType"; }
         }
         
         string IMigrationMetadata.Source
