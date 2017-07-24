@@ -10,6 +10,12 @@ namespace Vidlib.Controllers
 {
     public class MoviesController : Controller
     {
+        public ActionResult Index()
+        {
+            var movies = GetMovies();
+            return View(movies);
+        }
+
         // GET: Movies/Random
         public ActionResult Random()
         {
@@ -21,6 +27,16 @@ namespace Vidlib.Controllers
 
             RandomViewModel viewModel = new RandomViewModel {Movie = movie, Customers = customers};
             return View(viewModel);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            var movies = new List<Movie>
+            {
+                new Movie{Name = "Mission Impossible"},
+                new Movie{Name = "Minnions"}
+            };
+            return movies;
         }
     }
 }
